@@ -7,8 +7,8 @@ from django.db.models.base import CASCADE
 class Project(models.Model):
     name = models.CharField(max_length=200)
 
-    def __srt__(self):
-        return self.name
+    def __str__(self):
+        return f"{self.name}"
 
 
 class Tasks(models.Model):
@@ -17,5 +17,5 @@ class Tasks(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     done = models.BooleanField(default=False)
 
-    def __srt__(self):
+    def __str__(self):
         return self.name + "al projecto: " + self.project.name
