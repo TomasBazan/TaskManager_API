@@ -1,6 +1,11 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register(r'projects', views.ProjectViewSet, basename='project')
+router.register(r'tasks', views.TasksViewSet, basename='task')
 
 urlpatterns = [
-    path("", views.pepe, name="index"),
+    path('', include(router.urls)),
 ]
