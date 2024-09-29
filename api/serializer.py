@@ -7,7 +7,7 @@ from users.models import User
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Project
-        fields = ["url", "id", "name", "owner"]
+        fields = [ "id", "name", "owner"]
 
     def create(self, validated_data):
         validated_data['owner'] = self.context['request'].user

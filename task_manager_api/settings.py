@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "api.apps.ApiConfig",
     "users.apps.UsersConfig",
     "drf_spectacular",
+    "rest_framework_simplejwt",
 ]
 
 MIDDLEWARE = [
