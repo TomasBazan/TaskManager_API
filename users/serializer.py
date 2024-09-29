@@ -5,4 +5,10 @@ from .models import User
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = [ "url", "id", "name", "password",]
+        fields = [  "id", "name", "email", "password",]
+
+    def create(self,validated_data):
+        user = User(name=validated_data['name'], email=validated_data['email'])
+        user.set_password(validated_data['password'])
+        user.save()
+        return user
